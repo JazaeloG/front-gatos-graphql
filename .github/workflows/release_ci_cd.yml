@@ -13,15 +13,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
-      #- name: CI
-        #run: npm ci
+      - name: CI
+        run: npm ci
       #- name: Test
         #run: |
           #npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
           
-      #- name: build react, output in dist/openai
-        #run: |
-          #npm run install
+      - name: build react, output in dist/openai
+        run: npm run install
+          
       
       #- name: show dir, .env file
         #run: |
