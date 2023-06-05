@@ -6,21 +6,21 @@ const CREATE_Gato_MUTATION = gql`
 mutation PostMutation(
   $name: String!
   $tipo: String!
-  $ataque: Float!  # Modificado a Float
-  $velocidad: Float!  # Modificado a Float
-  $defensa: Float!  # Modificado a Float
+  $ataque: Int! 
+  $velocidad: Int!  
+  $defensa: Int! 
   $image: String!
   $strong: String!
   $counter: String!
 ) {
-  post(
-    name: $name
-    tipo: $tipo
-    ataque: $ataque
-    velocidad: $velocidad
-    defensa: $defensa
-    image: $image
-    strong: $strong
+  createGato(
+    name: $name,
+    tipo: $tipo,
+    ataque: $ataque,
+    velocidad: $velocidad,
+    defensa: $defensa,
+    image: $image,
+    strong: $strong,
     counter: $counter
   ) {
     id
@@ -49,10 +49,16 @@ const CreateGato = () => {
     image: ''
   });
 
-  const [createLink] = useMutation(CREATE_Gato_MUTATION, {
+  const [createGato] = useMutation(CREATE_Gato_MUTATION, {
     variables: {
-      description: formState.description,
-      url: formState.url
+      name: formState.name,
+      tipo: formState.tipo,
+      ataque: formState.ataque,
+      defensa: formState.defensa,
+      velocidad: formState.velocidad,
+      counter: formState.counter,
+      strong: formState.strong,
+      image: formState.image,
     },
     onCompleted: () => navigate('/')
   });
@@ -62,7 +68,7 @@ const CreateGato = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          createLink();
+          createGato();
         }}
       >
         <div className="flex flex-column mt3">
