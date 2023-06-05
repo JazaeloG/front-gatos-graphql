@@ -19,9 +19,9 @@ jobs:
         #run: |
           #npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
           
-      - name: build angular, output in dist/openai
+      - name: build react, output in dist/openai
         run: |
-          npm run build
+          npm run install
       
       #- name: show dir, .env file
         #run: |
