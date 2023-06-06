@@ -15,7 +15,8 @@ const Gato = (props) => {
         <br />
         Fuerte contra: {gato.strong}
         <br />
-        Imagen Gato: {gato.image}
+        Imagen Gato: 
+        <img src={gato.image} width={"15%"} height={"15%"}></img>
         <br />
         Pierde contra: {gato.counter}
         <br />
